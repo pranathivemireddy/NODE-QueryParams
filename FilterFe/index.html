@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="mens">mens</button>
+    <button id="womens">womens</button>
+
+    <script>
+        var button_men=document.getElementById('mens')
+        var button_women=document.getElementById('womens')
+        button_men.addEventListener('click',()=>{
+            var cate="m"
+            fetch('http://localhost:3006/pathname?cat='+cate).then((val)=>{
+                return val.json()
+            }).then((val)=>{
+                console.log(val)
+            })
+        })
+        button_women.addEventListener('click',()=>{
+           var cate="w"
+            fetch('http://localhost:3006/pathname?cat='+cate).then((val)=>{
+                return val.json()
+            }).then((val)=>{
+                console.log(val)
+            })
+        })
+    </script>
+</body>
+</html>

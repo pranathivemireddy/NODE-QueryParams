@@ -21,13 +21,9 @@
     </form>
     <script>
         var form=document.forms[0]
-        form.addEventListener('click',(e)=>{
+        form.addEventListener('submit',(e)=>{
             e.preventDefault()
-            console.log(e)
-            console.log(e.target[0])
-            console.log(e.target[1])
-            console.log(`http://localhost:3006/pathname?cat=${e.target[0].value}&sort=${e.target[1].value}`)
-           fetch( `http://localhost:3006/pathname?cat=${e.target[0].value}&sort=${e.target[1].value}`).then(()=>{
+            fetch( `http://localhost:3006/pathname?cat=${e.target[0].value}&sort=${e.target[1].value}`).then((val)=>{
             return val.json()
            }).then((val)=>{
             console.log(val)
